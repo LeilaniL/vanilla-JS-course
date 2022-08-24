@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>JS Drum Kit</title>
   <link rel="stylesheet" href="style.css">
+  <!-- TODO
+  play sound on keypress
+  yellow border on keypress -->
+
 </head>
 <body>
 
@@ -58,7 +62,27 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  function playSound (inputKey) {
+    console.log("🎵 playSound called!")
+    // if(inputKey) {
+      // play audio inputKey 
+    // }
+  }
+  function highlight () {
+    console.log("🟡 highlight called!")
+    // div.id addClass(yellow border)
+  }
 
+  // const element = document.getElementsByClassName("key");
+  // console.log({element});
+  // element.onClick
+
+  window.addEventListener('keydown', function(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+    if(!audio) return;
+    audio.currentTime = 0;
+    audio.play();
+  })
 </script>
 
 
