@@ -73,14 +73,15 @@
   });
 
   function removeTransition(e) {
-    console.log(e);
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
   }
 
   const allKeys = document.querySelectorAll('.key');
   console.log('allKeys: ', allKeys.length);
   allKeys.forEach((k) => {
     console.log('All Keys called');
-    k.addEventListener('transitionEnd', removeTransition)
+    k.addEventListener('transitionend', removeTransition)
   })
 </script>
 
